@@ -2,7 +2,6 @@ use axum::{routing::get,Router};
 use std::net::SocketAddr;
 #[tokio::main]
 async fn main(){
-    //loggingの初期化
     init_logger();
     let app=Router::new().route("/", get(root));//アプリケーションのルーティング設定　メソッド設定はgetやpostに変更できる
     //またget(get_hundler).post(post_hundler）のようにメソッドチェーンで呼び起こす事ができる
@@ -17,5 +16,6 @@ async fn root()->&'static str{//Hello world を返すだけなのでstrings指�
     "Hello World"
 }
 fn init_logger(){
+    //loggingの初期化
     env_logger::init();
 }
